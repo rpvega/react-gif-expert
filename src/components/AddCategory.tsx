@@ -1,11 +1,12 @@
+import PropTypes from 'prop-types';
 import { ChangeEvent, FormEvent, useState } from "react"
 
 //Este componente solo emite el valor ingresado en el input, es su unica tarea
-export const AddCategory = ({ onNewCategory }: any) => {
+export const AddCategory = ({ onNewCategory }: { onNewCategory: (newCategory: string) => void }) => {
 
-    const [inputValue, setInputValue] = useState('');
+    const [inputValue, setInputValue] = useState<string>('');
 
-    const onInputchange = (event: ChangeEvent) => {
+    const onInputchange = (event: ChangeEvent): void => {
         const { target } = event;
         setInputValue((target as HTMLButtonElement).value);
     }
@@ -30,4 +31,9 @@ export const AddCategory = ({ onNewCategory }: any) => {
             </form>
         </>
     )
+}
+
+
+AddCategory.propTypes = {
+    onNewCategory: PropTypes.func.isRequired
 }

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 
 export const getGifs = async (category: string) => {
 
@@ -11,4 +12,8 @@ export const getGifs = async (category: string) => {
         url: img.images.downsized_medium.url
     }))
 
+}
+
+getGifs.propTypes = {
+    category: PropTypes.string.isRequired
 }

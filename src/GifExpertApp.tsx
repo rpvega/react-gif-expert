@@ -3,9 +3,9 @@ import { AddCategory, GifGrid } from "./components";
 
 export const GiftExpertApp = () => {
 
-    const [categories, setCategories] = useState(['one punch']);
+    const [categories, setCategories] = useState<string[]>(['one punch']);
 
-    const onNewCategory = (newCategory: string) => {
+    const onNewCategory = (newCategory: string): void => {
         if (categories.includes(newCategory)) return;
         setCategories([newCategory, ...categories])
     }
